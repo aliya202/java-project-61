@@ -14,7 +14,7 @@ public class Calc {
         String name = scanner.nextLine();
         System.out.println("Hello, " + name + "! Let's start.");
 
-        int correctAnswersCount = 0; //счетчик успешных раундов
+        int correctAnswersCount = 0;
         for (int i = 0; i < 3; i++) {
             String[] objects = generateQuestionAndAnswer();
             String question  = objects[0];

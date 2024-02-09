@@ -2,8 +2,6 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-import java.util.Random;
-
 public class Even {
     public static void runGame() {
         Scanner scanner = new Scanner(System.in);
