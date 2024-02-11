@@ -15,9 +15,12 @@ public class Progression {
             int hiddenIndex = random.nextInt(progression.length);
             String hiddenNumber = progression[hiddenIndex];
             progression[hiddenIndex] = "..";
-
-            roundsData[i][0] = Arrays.toString(progression);
-            roundsData[i][1] = hiddenNumber;
+            StringBuilder sb = new StringBuilder();
+            for (String str : progression) {
+                sb.append(str).append(" ");
+            }
+            roundsData[i][0] = sb.toString();
+            roundsData[i][1] = String.valueOf(hiddenNumber);
         }
         Engine.run("What number is missing in the progression?", roundsData);
     }
