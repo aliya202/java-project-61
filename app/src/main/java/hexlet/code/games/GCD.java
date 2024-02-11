@@ -1,45 +1,21 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Engine;
 
-import java.util.Scanner;
 public class GCD {
+
     public static void runGame() {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String name = scanner.nextLine();
-        System.out.println("Hello " + name + "!");
-        System.out.println("Find the greatest common divisor of given numbers.");
-
-        int correctAnswersCount = 0;
-
+        String[][] roundsData = new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int num1 = (int) (Math.random() * 100);
-            int num2 = (int) (Math.random() * 100);
+            int num1 = (int) (Math.random() * 100) + 1;
+            int num2 = (int) (Math.random() * 100) + 1;
             int gcd = findGCD(num1, num2);
 
-            System.out.println("Question: " + num1 + " " + num2);
-            System.out.print("Your answer: ");
-            int userAnswer = scanner.nextInt();
+            roundsData[i][0] = String.valueOf(String.format("%d  %d", num1, num2));
 
-            if (userAnswer == gcd) {
-                System.out.println("Correct!");
-                correctAnswersCount++;
-            } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + gcd + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                break;
-            }
+            roundsData[i][1] = String.valueOf(gcd);
         }
-
-        if (correctAnswersCount == 3) {
-            System.out.println("Congratulations, " + name + "!");
-        }
-
-        scanner.close();
+        Engine.run("Find the greatest common divisor of given numbers.", roundsData);
     }
 
     public static int findGCD(int num1, int num2) {
