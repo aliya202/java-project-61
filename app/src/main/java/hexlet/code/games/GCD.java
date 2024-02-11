@@ -11,7 +11,7 @@ public class GCD {
             int num2 = (int) (Math.random() * 100) + 1;
             int gcd = findGCD(num1, num2);
 
-            roundsData[i][0] = String.valueOf(String.format("%d  %d", num1, num2));
+            roundsData[i][0] = String.valueOf(String.format("%d %d", num1, num2));
 
             roundsData[i][1] = String.valueOf(gcd);
         }
