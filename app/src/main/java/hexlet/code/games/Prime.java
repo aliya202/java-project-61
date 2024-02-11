@@ -12,7 +12,7 @@ public class Prime {
             String result = isPrime(randomNumber) ? "yes" : "no";
             roundsData[i][1] = result;
         }
-        Engine.run("Answer 'yes' if the number is prime, otherwise answer 'no'.", roundsData);
+        Engine.run("Answer 'yes' if the given number is prime, otherwise answer 'no'.", roundsData);
     }
 
     public static boolean isPrime(int randomNumber) {
