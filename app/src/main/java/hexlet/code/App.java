@@ -25,27 +25,13 @@ public class App {
         System.out.println();
 
         switch (selectedGame) {
-            case "1":
-                Cli.greet(scanner);
-                break;
-            case "2":
-                Even.runGame();
-                break;
-            case "3":
-                Calc.runGame();
-                break;
-            case "4":
-                GCD.runGame();
-                break;
-            case "5":
-                Progression.runGame();
-                break;
-            case "6":
-                Prime.runGame();
-                break;
-            default:
-                System.out.println("Exit");
-                break;
+            case "1" -> Cli.greet(scanner);
+            case "2" -> Even.runGame();
+            case "3" -> Calc.runGame();
+            case "4" -> GCD.runGame();
+            case "5" -> Progression.runGame();
+            case "6" -> Prime.runGame();
+            default -> System.out.println("Exit");
         }
         scanner.close();
     }
