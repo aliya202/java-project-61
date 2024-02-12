@@ -1,10 +1,13 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Random;
 
 public class Calc {
+    private static final int minBoundary = 1;
+    private static final int maxBoundary = 20;
+
     public static void runGame() {
         String[][] roundsData = new String[3][2];
         for (int i = 0; i < 3; i++) {
@@ -17,11 +20,10 @@ public class Calc {
     }
 
     private static String[] generateQuestionAndAnswer() {
-        Random random = new Random();
-        int num1 = (int) (Math.random() * 20);
-        int num2 = (int) (Math.random() * 20);
+        int num1 = Utils.getRandom(minBoundary, maxBoundary);
+        int num2 = Utils.getRandom(minBoundary, maxBoundary);
         String[] operations = {"+", "-", "*"};
-        String operation = operations[random.nextInt(operations.length)];
+        String operation = operations[Utils.getRandom(0, operations.length)];
         String[] objects = new String[2];
         switch (operation) {
             case "+":

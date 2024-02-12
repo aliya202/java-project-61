@@ -1,18 +1,17 @@
 package hexlet.code.games;
 
-import java.util.Arrays;
-import java.util.Random;
-
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Progression {
-    private static Random random = new Random();
     public static void runGame() {
+        final int minLength = 5;
+        final int maxLength = 10;
         String[][] roundsData = new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int length = random.nextInt(5) + 5;
+            int length = Utils.getRandom(minLength, maxLength);
             String[] progression = generateProgression(length);
-            int hiddenIndex = random.nextInt(progression.length);
+            int hiddenIndex = Utils.getRandom(0, length);
             String hiddenNumber = progression[hiddenIndex];
             progression[hiddenIndex] = "..";
             StringBuilder sb = new StringBuilder();
@@ -27,8 +26,10 @@ public class Progression {
 
     private static String[] generateProgression(int length) {
         String[] progression = new String[length];
-        int start = random.nextInt(50);
-        int diff = random.nextInt(10) + 1;
+        int start = Utils.getRandom();
+        int minStep = 2;
+        int maxStep = 10;
+        int diff = Utils.getRandom(minStep, maxStep);
 
         for (int i = 0; i < length; i++) {
             progression[i] = String.valueOf(start + i * diff);

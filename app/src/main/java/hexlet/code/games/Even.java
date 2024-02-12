@@ -1,13 +1,14 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Even {
 
     public static void runGame() {
         String[][] roundsData = new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int randomNumber = (int) (Math.random() * 100);
+            int randomNumber = Utils.getRandom();
             roundsData[i][0] = String.valueOf(randomNumber);
 
             boolean isEven = randomNumber % 2 == 0;
