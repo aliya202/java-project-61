@@ -16,9 +16,14 @@ public class Calc {
             String operation = operations[Utils.getRandom(0, operations.length)];
             int value;
             switch (operation) {
-                case "+" -> value = num1 + num2;
-                case "-" -> value = num1 - num2;
-                default -> value = num1 * num2;
+                case "+":
+                    value = num1 + num2;
+                    break;
+                case "-":
+                    value = num1 - num2;
+                    break;
+                default:
+                    value = num1 * num2;
             }
 
             roundsData[i][0] = String.format("%d %s %d", num1, operation, num2);
@@ -27,4 +32,3 @@ public class Calc {
         Engine.run("What is the result of the expression?.", roundsData);
     }
 }
-
