@@ -26,8 +26,8 @@ public class Progression {
     private static String[] generateProgression(int length) {
         String[] progression = new String[length];
         int start = Utils.getRandom();
-        int minStep = 2;
-        int maxStep = 10;
+        final int minStep = 2;
+        final int maxStep = 10;
         int diff = Utils.getRandom(minStep, maxStep);
 
         for (int i = 0; i < length; i++) {

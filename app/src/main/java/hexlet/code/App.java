@@ -9,8 +9,8 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
-    public static int ROUNDS = 3;
-    public static int RESULTS = 2;
+    public static final int ROUNDS = 3;
+    public static final int RESULTS = 2;
     public static String[][] ROUNDS_DATA = new String[ROUNDS][RESULTS];
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");

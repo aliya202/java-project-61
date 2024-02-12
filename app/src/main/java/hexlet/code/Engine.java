@@ -9,6 +9,7 @@ public class Engine {
         String name = Cli.greet(scanner);
         System.out.println(description);
         int correctAnswersCount = 0;
+        final int successAtempts = 3;
 
         for (String[] roundData : roundsData) {
             System.out.println("Question: " + roundData[0]);
@@ -24,7 +25,7 @@ public class Engine {
                 System.out.println("Let's try again, " + name + "!");
                 break;
             }
-            if (correctAnswersCount == 3) {
+            if (correctAnswersCount == successAtempts) {
                 System.out.println("Congratulations, " + name + "!");
             }
         }
