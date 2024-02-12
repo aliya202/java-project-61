@@ -10,35 +10,21 @@ public class Calc {
 
     public static void runGame(String[][] roundsData) {
         for (int i = 0; i < roundsData.length; i++) {
-            String[] objects = generateQuestionAndAnswer();
-            roundsData[i][0] = objects[0];
+            int num1 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
+            int num2 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
+            String[] operations = {"+", "-", "*"};
+            String operation = operations[Utils.getRandom(0, operations.length)];
+            int value;
+            switch (operation) {
+                case "+" -> value = num1 + num2;
+                case "-" -> value = num1 - num2;
+                default -> value = num1 * num2;
+            }
 
-            roundsData[i][1] = objects[1];
+            roundsData[i][0] = String.format("%d %s %d", num1, operation, num2);
+            roundsData[i][1] = String.valueOf(value);
         }
         Engine.run("What is the result of the expression?.", roundsData);
-    }
-
-    private static String[] generateQuestionAndAnswer() {
-        int num1 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
-        int num2 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
-        String[] operations = {"+", "-", "*"};
-        String operation = operations[Utils.getRandom(0, operations.length)];
-        String[] objects = new String[2];
-        switch (operation) {
-            case "+":
-                objects[0] = String.format("%d + %d", num1, num2);
-                objects[1] = String.valueOf(num1 + num2);
-                break;
-            case "-":
-                objects[0] = String.format("%d - %d", num1, num2);
-                objects[1] = String.valueOf(num1 - num2);
-                break;
-            default:
-                objects[0] = String.format("%d * %d", num1, num2);
-                objects[1] = String.valueOf(num1 * num2);
-                break;
-        }
-        return objects;
     }
 }
 
