@@ -5,9 +5,8 @@ import hexlet.code.Utils;
 
 public class GCD {
 
-    public static void runGame() {
-        String[][] roundsData = new String[3][2];
-        for (int i = 0; i < 3; i++) {
+    public static void runGame(String[][] roundsData) {
+        for (int i = 0; i < roundsData.length; i++) {
             int num1 = Utils.getRandom();
             int num2 = Utils.getRandom();
             int gcd = findGCD(num1, num2);

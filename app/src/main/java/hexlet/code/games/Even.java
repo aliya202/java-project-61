@@ -5,9 +5,8 @@ import hexlet.code.Utils;
 
 public class Even {
 
-    public static void runGame() {
-        String[][] roundsData = new String[3][2];
-        for (int i = 0; i < 3; i++) {
+    public static void runGame(String[][] roundsData) {
+        for (int i = 0; i < roundsData.length; i++) {
             int randomNumber = Utils.getRandom();
             roundsData[i][0] = String.valueOf(randomNumber);
 

@@ -5,12 +5,11 @@ import hexlet.code.Utils;
 
 
 public class Calc {
-    private static final int minBoundary = 1;
-    private static final int maxBoundary = 20;
+    private static final int MIN_BOUNDARY = 1;
+    private static final int MAX_BOUNDARY = 20;
 
-    public static void runGame() {
-        String[][] roundsData = new String[3][2];
-        for (int i = 0; i < 3; i++) {
+    public static void runGame(String[][] roundsData) {
+        for (int i = 0; i < roundsData.length; i++) {
             String[] objects = generateQuestionAndAnswer();
             roundsData[i][0] = objects[0];
 
@@ -20,8 +19,8 @@ public class Calc {
     }
 
     private static String[] generateQuestionAndAnswer() {
-        int num1 = Utils.getRandom(minBoundary, maxBoundary);
-        int num2 = Utils.getRandom(minBoundary, maxBoundary);
+        int num1 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
+        int num2 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
         String[] operations = {"+", "-", "*"};
         String operation = operations[Utils.getRandom(0, operations.length)];
         String[] objects = new String[2];

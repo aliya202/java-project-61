@@ -4,11 +4,10 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    public static void runGame() {
+    public static void runGame(String[][] roundsData) {
         final int minLength = 5;
         final int maxLength = 10;
-        String[][] roundsData = new String[3][2];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < roundsData.length; i++) {
             int length = Utils.getRandom(minLength, maxLength);
             String[] progression = generateProgression(length);
             int hiddenIndex = Utils.getRandom(0, length);
