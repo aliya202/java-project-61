@@ -3,8 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import static hexlet.code.Engine.ROUNDS_DATA;
+
 public class Prime {
-    public static void runGame(String[][] roundsData) {
+
+    public static void runGame() {
+        String[][] roundsData = ROUNDS_DATA;
+
         for (int i = 0; i < roundsData.length; i++) {
             int randomNumber = Utils.getRandom();
             roundsData[i][0] = String.valueOf(randomNumber);

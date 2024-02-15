@@ -9,9 +9,7 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
-    public static final int ROUNDS = 3;
-    public static final int RESULTS = 2;
-    public static final String[][] ROUNDS_DATA = new String[ROUNDS][RESULTS];
+
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -28,12 +26,12 @@ public class App {
         System.out.println();
 
         switch (selectedGame) {
-            case "1" -> Cli.greet(scanner);
-            case "2" -> Even.runGame(ROUNDS_DATA);
-            case "3" -> Calc.runGame(ROUNDS_DATA);
-            case "4" -> GCD.runGame(ROUNDS_DATA);
-            case "5" -> Progression.runGame(ROUNDS_DATA);
-            case "6" -> Prime.runGame(ROUNDS_DATA);
+            case "1" -> Cli.sayHello(scanner);
+            case "2" -> Even.runGame();
+            case "3" -> Calc.runGame();
+            case "4" -> GCD.runGame();
+            case "5" -> Progression.runGame();
+            case "6" -> Prime.runGame();
             default -> System.out.println("Exit");
         }
         scanner.close();

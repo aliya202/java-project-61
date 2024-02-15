@@ -3,10 +3,15 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import static hexlet.code.Engine.ROUNDS_DATA;
+
 public class Progression {
-    public static void runGame(String[][] roundsData) {
+
+    public static void runGame() {
+        String[][] roundsData = ROUNDS_DATA;
         final int minLength = 5;
         final int maxLength = 10;
+
         for (int i = 0; i < roundsData.length; i++) {
             int length = Utils.getRandom(minLength, maxLength);
             String[] progression = generateProgression(length);
@@ -14,6 +19,7 @@ public class Progression {
             String hiddenNumber = progression[hiddenIndex];
             progression[hiddenIndex] = "..";
             StringBuilder sb = new StringBuilder();
+
             for (String str : progression) {
                 sb.append(str).append(" ");
             }
