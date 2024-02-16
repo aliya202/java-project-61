@@ -11,8 +11,7 @@ public class Calc {
     private static final int MAX_BOUNDARY = 20;
 
     public static void runGame() {
-        String[][] roundsData = ROUNDS_DATA;
-        for (int i = 0; i < roundsData.length; i++) {
+        for (int i = 0; i < ROUNDS_DATA.length; i++) {
             int num1 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
             int num2 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
             String[] operations = {"+", "-", "*"};
@@ -29,9 +28,9 @@ public class Calc {
                     value = num1 * num2;
             }
 
-            roundsData[i][0] = String.format("%d %s %d", num1, operation, num2);
-            roundsData[i][1] = String.valueOf(value);
+            ROUNDS_DATA[i][0] = String.format("%d %s %d", num1, operation, num2);
+            ROUNDS_DATA[i][1] = String.valueOf(value);
         }
-        Engine.run("What is the result of the expression?.", roundsData);
+        Engine.run("What is the result of the expression?.", ROUNDS_DATA);
     }
 }

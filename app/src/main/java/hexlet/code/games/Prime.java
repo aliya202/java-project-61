@@ -8,16 +8,15 @@ import static hexlet.code.Engine.ROUNDS_DATA;
 public class Prime {
 
     public static void runGame() {
-        String[][] roundsData = ROUNDS_DATA;
 
-        for (int i = 0; i < roundsData.length; i++) {
+        for (int i = 0; i < ROUNDS_DATA.length; i++) {
             int randomNumber = Utils.getRandom();
-            roundsData[i][0] = String.valueOf(randomNumber);
+            ROUNDS_DATA[i][0] = String.valueOf(randomNumber);
 
             String result = isPrime(randomNumber) ? "yes" : "no";
-            roundsData[i][1] = result;
+            ROUNDS_DATA[i][1] = result;
         }
-        Engine.run("Answer 'yes' if given number is prime. Otherwise answer 'no'.", roundsData);
+        Engine.run("Answer 'yes' if given number is prime. Otherwise answer 'no'.", ROUNDS_DATA);
     }
 
     public static boolean isPrime(int randomNumber) {

@@ -8,15 +8,14 @@ import static hexlet.code.Engine.ROUNDS_DATA;
 public class Even {
 
     public static void runGame() {
-        String[][] roundsData = ROUNDS_DATA;
-        for (int i = 0; i < roundsData.length; i++) {
+        for (int i = 0; i < ROUNDS_DATA.length; i++) {
             int randomNumber = Utils.getRandom();
-            roundsData[i][0] = String.valueOf(randomNumber);
+            ROUNDS_DATA[i][0] = String.valueOf(randomNumber);
 
             String result = isEven(randomNumber) ? "yes" : "no";
-            roundsData[i][1] = result;
+            ROUNDS_DATA[i][1] = result;
         }
-        Engine.run("Answer 'yes' if the number is even, otherwise answer 'no'.", roundsData);
+        Engine.run("Answer 'yes' if the number is even, otherwise answer 'no'.", ROUNDS_DATA);
     }
 
     public static boolean isEven(int randomNumber) {

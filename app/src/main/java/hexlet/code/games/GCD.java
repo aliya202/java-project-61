@@ -8,17 +8,16 @@ import static hexlet.code.Engine.ROUNDS_DATA;
 public class GCD {
 
     public static void runGame() {
-        String[][] roundsData = ROUNDS_DATA;
-        for (int i = 0; i < roundsData.length; i++) {
+        for (int i = 0; i < ROUNDS_DATA.length; i++) {
             int num1 = Utils.getRandom();
             int num2 = Utils.getRandom();
             int gcd = findGCD(num1, num2);
 
-            roundsData[i][0] = String.valueOf(String.format("%d %d", num1, num2));
+            ROUNDS_DATA[i][0] = String.valueOf(String.format("%d %d", num1, num2));
 
-            roundsData[i][1] = String.valueOf(gcd);
+            ROUNDS_DATA[i][1] = String.valueOf(gcd);
         }
-        Engine.run("Find the greatest common divisor of given numbers.", roundsData);
+        Engine.run("Find the greatest common divisor of given numbers.", ROUNDS_DATA);
     }
 
     public static int findGCD(int num1, int num2) {

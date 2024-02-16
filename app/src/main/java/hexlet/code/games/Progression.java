@@ -8,11 +8,10 @@ import static hexlet.code.Engine.ROUNDS_DATA;
 public class Progression {
 
     public static void runGame() {
-        String[][] roundsData = ROUNDS_DATA;
         final int minLength = 5;
         final int maxLength = 10;
 
-        for (int i = 0; i < roundsData.length; i++) {
+        for (int i = 0; i < ROUNDS_DATA.length; i++) {
             int length = Utils.getRandom(minLength, maxLength);
             String[] progression = generateProgression(length);
             int hiddenIndex = Utils.getRandom(0, length);
@@ -23,10 +22,10 @@ public class Progression {
             for (String str : progression) {
                 sb.append(str).append(" ");
             }
-            roundsData[i][0] = sb.toString();
-            roundsData[i][1] = String.valueOf(hiddenNumber);
+            ROUNDS_DATA[i][0] = sb.toString();
+            ROUNDS_DATA[i][1] = String.valueOf(hiddenNumber);
         }
-        Engine.run("What number is missing in the progression?", roundsData);
+        Engine.run("What number is missing in the progression?", ROUNDS_DATA);
     }
 
     private static String[] generateProgression(int length) {
