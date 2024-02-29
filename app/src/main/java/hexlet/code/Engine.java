@@ -9,7 +9,7 @@ public class Engine {
 
     public static void run(String description, String[][] roundsData) {
         Scanner scanner = new Scanner(System.in);
-        String name = Cli.sayHello(scanner);
+        String name = Cli.sayHello();
         System.out.println(description);
         int correctAnswersCount = 0;
         final int successAttempts = 3;

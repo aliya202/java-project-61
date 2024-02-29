@@ -26,7 +26,7 @@ public class App {
         System.out.println();
 
         switch (selectedGame) {
-            case "1" -> Cli.sayHello(scanner);
+            case "1" -> Cli.sayHello();
             case "2" -> Even.runGame();
             case "3" -> Calc.runGame();
             case "4" -> GCD.runGame();
