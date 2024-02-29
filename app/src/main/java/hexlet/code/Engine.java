@@ -9,7 +9,8 @@ public class Engine {
 
     public static void run(String description, String[][] roundsData) {
         Scanner scanner = new Scanner(System.in);
-        String name = Cli.sayHello();
+        welcome();
+        String name = hello(scanner.next());
         System.out.println(description);
         int correctAnswersCount = 0;
         final int successAttempts = 3;
@@ -34,6 +35,16 @@ public class Engine {
             }
         }
         scanner.close();
+    }
+
+    public static void welcome() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+    }
+
+    public static String hello(String username) {
+        System.out.println("Hello, " + username + "!");
+        return username;
     }
 }
 
