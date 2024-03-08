@@ -20,7 +20,7 @@ public class Progression extends Game {
 
             values[j][0] = String.valueOf(length);
 
-            for (int i = 0; i < length - 1; i++) {
+            for (int i = 0; i < length; i++) {
                 values[j][i + 1] = String.valueOf(start + i * diff);
             }
         }
