@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 
-public class Calc extends Game {
+public final class Calc extends Game {
 
     private static final int MIN_BOUNDARY = 1;
     private static final int MAX_BOUNDARY = 20;
@@ -37,17 +37,11 @@ public class Calc extends Game {
             String operation = rowValues[i][1];
             int num2 = Integer.parseInt(rowValues[i][2]);
 
-            int answer;
-            switch (operation) {
-                case "+":
-                    answer = num1 + num2;
-                    break;
-                case "-":
-                    answer = num1 - num2;
-                    break;
-                default:
-                    answer = num1 * num2;
-            }
+            int answer = switch (operation) {
+                case "+" -> num1 + num2;
+                case "-" -> num1 - num2;
+                default -> num1 * num2;
+            };
 
             String[] values = new String[3];
             values[0] = String.valueOf(num1);

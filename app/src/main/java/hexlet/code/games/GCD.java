@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class GCD extends Game {
+public final class GCD extends Game {
 
     public String[][] generate(int rounds) {
         final String[][] values = new String[rounds][2];

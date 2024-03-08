@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class Prime extends Game {
+public final class Prime extends Game {
 
     @Override
     public String[][] generate(int rounds) {

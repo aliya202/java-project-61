@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class Even extends Game {
+public final class Even extends Game {
 
     @Override
     public String[][] generate(int rounds) {
