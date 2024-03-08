@@ -57,9 +57,9 @@ public class App {
                 progression.run(transform);
             }
             case "6" -> {
-                String[][] generate1 = prime.generate(ROUNDS_DATA.length);
-                EngineData[] transform = prime.transform(generate1);
-                progression.run(transform);
+                String[][] generate = prime.generate(ROUNDS_DATA.length);
+                EngineData[] transform = prime.transform(generate);
+                prime.run(transform);
             }
             default -> System.out.println("Exit");
         }
