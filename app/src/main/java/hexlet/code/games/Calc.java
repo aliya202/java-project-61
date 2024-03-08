@@ -43,7 +43,8 @@ public final class Calc extends Game {
                 default -> num1 * num2;
             };
 
-            String[] values = new String[3];
+            final int arrLength = 3;
+            String[] values = new String[arrLength];
             values[0] = String.valueOf(num1);
             values[1] = operation;
             values[2] = String.valueOf(num2);
