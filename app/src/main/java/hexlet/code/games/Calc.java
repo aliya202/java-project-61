@@ -8,7 +8,7 @@ public class Calc extends Game {
 
     private static final int MIN_BOUNDARY = 1;
     private static final int MAX_BOUNDARY = 20;
-    private static final String[] operations = {"+", "-", "*"};
+    private static final String[] OPERATIONS = {"+", "-", "*"};
 
     @Override
     public String[][] generate(int rounds) {
@@ -17,7 +17,7 @@ public class Calc extends Game {
         for (int i = 0; i < rounds; i++) {
             int num1 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
             int num2 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
-            String operation = operations[Utils.getRandom(0, operations.length)];
+            String operation = OPERATIONS[Utils.getRandom(0, OPERATIONS.length)];
 
             values[i][0] = String.valueOf(num1);
             values[i][1] = operation;

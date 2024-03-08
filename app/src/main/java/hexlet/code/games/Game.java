@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 public abstract class Game {
     public abstract String[][] generate(int rounds);
 
