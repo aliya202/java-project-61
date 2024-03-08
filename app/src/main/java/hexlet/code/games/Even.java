@@ -3,19 +3,35 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.ROUNDS_DATA;
+public class Even extends Game {
 
-public class Even {
+    @Override
+    public String[][] generate(int rounds) {
+        final String[][] values = new String[rounds][1];
 
-    public static void runGame() {
-        for (int i = 0; i < ROUNDS_DATA.length; i++) {
+        for (int i = 0; i < rounds; i++) {
             int randomNumber = Utils.getRandom();
-            ROUNDS_DATA[i][0] = String.valueOf(randomNumber);
-
-            String result = isEven(randomNumber) ? "yes" : "no";
-            ROUNDS_DATA[i][1] = result;
+            values[i][0] = String.valueOf(randomNumber);
         }
-        Engine.run("Answer 'yes' if the number is even, otherwise answer 'no'.", ROUNDS_DATA);
+        return values;
+    }
+
+    @Override
+    public EngineData[] transform(String[][] rowValues) {
+        int rounds = rowValues.length;
+        final EngineData[] engineData = new EngineData[rounds];
+
+        for (int i = 0; i < rounds; i++) {
+            String answer = isEven(Integer.parseInt(rowValues[i][0])) ? "yes" : "no";
+            engineData[i] = new EngineData(rowValues[i], answer);
+        }
+
+        return engineData;
+    }
+
+    @Override
+    public void run(EngineData[] engineData) {
+        Engine.run("Answer 'yes' if the number is even, otherwise answer 'no'.", engineData);
     }
 
     public static boolean isEven(int randomNumber) {

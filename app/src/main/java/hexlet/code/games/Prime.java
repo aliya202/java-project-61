@@ -3,23 +3,37 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.ROUNDS_DATA;
+public class Prime extends Game {
 
-public class Prime {
+    @Override
+    public String[][] generate(int rounds) {
+        final String[][] values = new String[rounds][1];
 
-    public static void runGame() {
-
-        for (int i = 0; i < ROUNDS_DATA.length; i++) {
+        for (int i = 0; i < rounds; i++) {
             int randomNumber = Utils.getRandom();
-            ROUNDS_DATA[i][0] = String.valueOf(randomNumber);
-
-            String result = isPrime(randomNumber) ? "yes" : "no";
-            ROUNDS_DATA[i][1] = result;
+            values[i][0] = String.valueOf(randomNumber);
         }
-        Engine.run("Answer 'yes' if given number is prime. Otherwise answer 'no'.", ROUNDS_DATA);
+        return values;
     }
 
-    public static boolean isPrime(int randomNumber) {
+    @Override
+    public EngineData[] transform(String[][] rowValues) {
+        int rounds = rowValues.length;
+        final EngineData[] engineData = new EngineData[rounds];
+
+        for (int i = 0; i < rounds; i++) {
+            String answer = isPrime(Integer.parseInt(rowValues[i][0])) ? "yes" : "no";
+            engineData[i] = new EngineData(rowValues[i], answer);
+        }
+        return engineData;
+    }
+
+    @Override
+    public void run(EngineData[] engineData) {
+        Engine.run("Answer 'yes' if given number is prime. Otherwise answer 'no'.", engineData);
+    }
+
+    public boolean isPrime(int randomNumber) {
         if (randomNumber < 2) {
             return false;
         }

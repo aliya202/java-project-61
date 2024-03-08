@@ -3,43 +3,57 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.ROUNDS_DATA;
+public class Progression extends Game {
 
-public class Progression {
-
-    public static void runGame() {
+    @Override
+    public String[][] generate(int rounds) {
         final int minLength = 5;
         final int maxLength = 10;
-
-        for (int i = 0; i < ROUNDS_DATA.length; i++) {
-            int length = Utils.getRandom(minLength, maxLength);
-            String[] progression = generateProgression(length);
-            int hiddenIndex = Utils.getRandom(0, length);
-            String hiddenNumber = progression[hiddenIndex];
-            progression[hiddenIndex] = "..";
-            StringBuilder sb = new StringBuilder();
-
-            for (String str : progression) {
-                sb.append(str).append(" ");
-            }
-            ROUNDS_DATA[i][0] = sb.toString();
-            ROUNDS_DATA[i][1] = String.valueOf(hiddenNumber);
-        }
-        Engine.run("What number is missing in the progression?", ROUNDS_DATA);
-    }
-
-    private static String[] generateProgression(int length) {
-        String[] progression = new String[length];
-        int start = Utils.getRandom();
         final int minStep = 2;
         final int maxStep = 10;
-        int diff = Utils.getRandom(minStep, maxStep);
+        final String[][] values = new String[rounds][maxLength];
 
-        for (int i = 0; i < length; i++) {
-            progression[i] = String.valueOf(start + i * diff);
+        for (int j = 0; j < rounds; j++) {
+            int length = Utils.getRandom(minLength, maxLength);
+            int diff = Utils.getRandom(minStep, maxStep);
+            int start = Utils.getRandom();
+
+            values[j][0] = String.valueOf(length);
+
+            for (int i = 0; i < length - 1; i++) {
+                values[j][i + 1] = String.valueOf(start + i * diff);
+            }
+        }
+        return values;
+    }
+
+    @Override
+    public EngineData[] transform(String[][] rowValues) {
+        int rounds = rowValues.length;
+        final EngineData[] engineData = new EngineData[rounds];
+
+        for (int i = 0; i < rounds; i++) {
+            int length = Integer.parseInt(rowValues[i][0]);
+            int hiddenIndex = Utils.getRandom(1, length - 1);
+            String answer = rowValues[i][hiddenIndex];
+            String[] sequence = new String[length - 1];
+
+            for (int j = 0; j < length - 1; j++) {
+                if (j + 1 == hiddenIndex) {
+                    sequence[j] = "..";
+                } else {
+                    sequence[j] = rowValues[i][j + 1];
+                }
+            }
+
+            engineData[i] = new EngineData(sequence, answer);
         }
 
-        return progression;
+        return engineData;
+    }
+
+    @Override
+    public void run(EngineData[] engineData) {
+        Engine.run("What number is missing in the progression?", engineData);
     }
 }
-
