@@ -10,9 +10,11 @@ public final class Calc extends Game {
     private static final int MAX_BOUNDARY = 20;
     private static final String[] OPERATIONS = {"+", "-", "*"};
 
+    private static final int ARR_LENGTH = 3;
+
     @Override
     public String[][] generate(int rounds) {
-        final String[][] values = new String[rounds][3];
+        final String[][] values = new String[rounds][ARR_LENGTH];
 
         for (int i = 0; i < rounds; i++) {
             int num1 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
@@ -43,8 +45,7 @@ public final class Calc extends Game {
                 default -> num1 * num2;
             };
 
-            final int arrLength = 3;
-            String[] values = new String[arrLength];
+            String[] values = new String[ARR_LENGTH];
             values[0] = String.valueOf(num1);
             values[1] = operation;
             values[2] = String.valueOf(num2);
