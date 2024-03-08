@@ -7,7 +7,7 @@ public class Progression extends Game {
 
     @Override
     public String[][] generate(int rounds) {
-        final int minLength = 5;
+        final int minLength = 6;
         final int maxLength = 10;
         final int minStep = 2;
         final int maxStep = 10;
