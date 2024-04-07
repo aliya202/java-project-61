@@ -3,12 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public final class GCD extends Game {
+public class GCD {
 
-    public String[][] generate(int rounds) {
-        final String[][] values = new String[rounds][2];
+    private static String[][] generate() {
+        final String[][] values = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < rounds; i++) {
+        for (int i = 0; i < values.length; i++) {
             int num1 = Utils.getRandom();
             int num2 = Utils.getRandom();
 
@@ -19,25 +19,25 @@ public final class GCD extends Game {
         return values;
     }
 
-    @Override
-    public EngineData[] transform(String[][] rowValues) {
-        int rounds = rowValues.length;
-        final EngineData[] engineData = new EngineData[rounds];
+    private static String[][] transform() {
+        String[][] generate = generate();
+        String[][] transformed = Engine.ROUNDS_DATA;
+        int rounds = generate.length;
 
         for (int i = 0; i < rounds; i++) {
-            String answer = String.valueOf(findGCD(Integer.parseInt(rowValues[i][0]),
-                    Integer.parseInt(rowValues[i][1])));
-            engineData[i] = new EngineData(rowValues[i], answer);
+            String answer = String.valueOf(findGCD(Integer.parseInt(generate[i][0]),
+                    Integer.parseInt(generate[i][1])));
+            transformed[i][0] = generate[i][0] + " " + generate[i][1];
+            transformed[i][1] = answer;
         }
-        return engineData;
+        return transformed;
     }
 
-    @Override
-    public void run(EngineData[] engineData) {
-        Engine.run("Find the greatest common divisor of given numbers.", engineData);
+    public static void run() {
+        Engine.run("Find the greatest common divisor of given numbers.", transform());
     }
 
-    public int findGCD(int num1, int num2) {
+    public static int findGCD(int num1, int num2) {
         while (num2 != 0) {
             int temp = num2;
             num2 = num1 % num2;

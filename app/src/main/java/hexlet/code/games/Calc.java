@@ -3,20 +3,17 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-
-public final class Calc extends Game {
+public class Calc {
 
     private static final int MIN_BOUNDARY = 1;
     private static final int MAX_BOUNDARY = 20;
     private static final String[] OPERATIONS = {"+", "-", "*"};
-
     private static final int ARR_LENGTH = 3;
 
-    @Override
-    public String[][] generate(int rounds) {
-        final String[][] values = new String[rounds][ARR_LENGTH];
+    private static String[][] generate() {
+        final String[][] values = new String[Engine.ROUNDS][ARR_LENGTH];
 
-        for (int i = 0; i < rounds; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int num1 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
             int num2 = Utils.getRandom(MIN_BOUNDARY, MAX_BOUNDARY);
             String operation = OPERATIONS[Utils.getRandom(0, OPERATIONS.length)];
@@ -29,10 +26,10 @@ public final class Calc extends Game {
         return values;
     }
 
-    @Override
-    public EngineData[] transform(String[][] rowValues) {
+    private static String[][] transform() {
+        String[][] rowValues = generate();
+        String[][] transformed = Engine.ROUNDS_DATA;
         int rounds = rowValues.length;
-        final EngineData[] engineData = new EngineData[rounds];
 
         for (int i = 0; i < rounds; i++) {
             int num1 = Integer.parseInt(rowValues[i][0]);
@@ -45,19 +42,14 @@ public final class Calc extends Game {
                 default -> num1 * num2;
             };
 
-            String[] values = new String[ARR_LENGTH];
-            values[0] = String.valueOf(num1);
-            values[1] = operation;
-            values[2] = String.valueOf(num2);
-
-            engineData[i] = new EngineData(values, String.valueOf(answer));
+            transformed[i][0] = String.format("%d %s %d", num1, operation, num2);
+            transformed[i][1] = String.valueOf(answer);
         }
 
-        return engineData;
+        return transformed;
     }
 
-    @Override
-    public void run(EngineData[] engineData) {
-        Engine.run("What is the result of the expression?.", engineData);
+    public static void run() {
+        Engine.run("What is the result of the expression?.", transform());
     }
 }

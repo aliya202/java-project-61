@@ -3,35 +3,32 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public final class Even extends Game {
+public class Even {
 
-    @Override
-    public String[][] generate(int rounds) {
-        final String[][] values = new String[rounds][1];
+    private static String[][] generate() {
+        final String[][] values = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < rounds; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int randomNumber = Utils.getRandom();
             values[i][0] = String.valueOf(randomNumber);
         }
         return values;
     }
 
-    @Override
-    public EngineData[] transform(String[][] rowValues) {
-        int rounds = rowValues.length;
-        final EngineData[] engineData = new EngineData[rounds];
-
-        for (int i = 0; i < rounds; i++) {
-            String answer = isEven(Integer.parseInt(rowValues[i][0])) ? "yes" : "no";
-            engineData[i] = new EngineData(rowValues[i], answer);
+    private static String[][] transform() {
+        String[][] generate = generate();
+        String[][] transformed = Engine.ROUNDS_DATA;
+        for (int i = 0; i < generate.length; i++) {
+            String answer = isEven(Integer.parseInt(generate[i][0])) ? "yes" : "no";
+            transformed[i][0] = generate[i][0];
+            transformed[i][1] = answer;
         }
 
-        return engineData;
+        return transformed;
     }
 
-    @Override
-    public void run(EngineData[] engineData) {
-        Engine.run("Answer 'yes' if the number is even, otherwise answer 'no'.", engineData);
+    public static void run() {
+        Engine.run("Answer 'yes' if the number is even, otherwise answer 'no'.", transform());
     }
 
     public static boolean isEven(int randomNumber) {
