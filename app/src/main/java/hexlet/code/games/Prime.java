@@ -38,7 +38,7 @@ public class Prime {
         if (randomNumber < 2) {
             return false;
         }
-        for (int i = 2; i < randomNumber / 2; i++) {
+        for (int i = 2; i < Math.sqrt(randomNumber); i++) {
             if (randomNumber % i == 0) {
                 return false;
             }

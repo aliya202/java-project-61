@@ -24,11 +24,9 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String selectedGame = scanner.next();
         System.out.println();
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
 
         switch (selectedGame) {
-            case "1" -> Cli.sayHello(scanner.next());
+            case "1" -> Cli.sayHello();
             case "2" -> Even.run();
             case "3" -> Calc.run();
             case "4" -> GCD.run();

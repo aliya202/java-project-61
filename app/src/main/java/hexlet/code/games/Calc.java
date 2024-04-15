@@ -36,17 +36,21 @@ public class Calc {
             String operation = rowValues[i][1];
             int num2 = Integer.parseInt(rowValues[i][2]);
 
-            int answer = switch (operation) {
-                case "+" -> num1 + num2;
-                case "-" -> num1 - num2;
-                default -> num1 * num2;
-            };
+            int answer = getAnswer(operation, num1, num2);
 
             transformed[i][0] = String.format("%d %s %d", num1, operation, num2);
             transformed[i][1] = String.valueOf(answer);
         }
 
         return transformed;
+    }
+
+    private static int getAnswer(String operation, int num1, int num2) {
+        return switch (operation) {
+            case "+" -> num1 + num2;
+            case "-" -> num1 - num2;
+            default -> num1 * num2;
+        };
     }
 
     public static void run() {

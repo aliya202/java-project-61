@@ -8,8 +8,11 @@ public class Engine {
     public static final String[][] ROUNDS_DATA = new String[ROUNDS][RESULTS];
 
     public static void run(String description, String[][] rounds) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name? !");
         Scanner scanner = new Scanner(System.in);
-        String name = Cli.sayHello(scanner.next());
+        String playerName = scanner.next();
+        System.out.println("Hello, " + playerName + "!");
         System.out.println(description);
         int correctAnswersCount = 0;
         final int successAttempts = 3;
@@ -26,12 +29,12 @@ public class Engine {
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + (round[1] + "'."));
-                System.out.println("Let's try again, " + name + "!");
+                System.out.println("Let's try again, " + playerName + "!");
                 break;
             }
 
             if (correctAnswersCount == successAttempts) {
-                System.out.println("Congratulations, " + name + "!");
+                System.out.println("Congratulations, " + playerName + "!");
             }
         }
         scanner.close();

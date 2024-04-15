@@ -5,29 +5,15 @@ import hexlet.code.Utils;
 
 public class GCD {
 
-    private static String[][] generate() {
+    private static String[][] transform() {
         final String[][] values = new String[Engine.ROUNDS][2];
-
+        String[][] transformed = Engine.ROUNDS_DATA;
         for (int i = 0; i < values.length; i++) {
             int num1 = Utils.getRandom();
             int num2 = Utils.getRandom();
 
-            values[i][0] = String.valueOf(num1);
-            values[i][1] = String.valueOf(num2);
-        }
-
-        return values;
-    }
-
-    private static String[][] transform() {
-        String[][] generate = generate();
-        String[][] transformed = Engine.ROUNDS_DATA;
-        int rounds = generate.length;
-
-        for (int i = 0; i < rounds; i++) {
-            String answer = String.valueOf(findGCD(Integer.parseInt(generate[i][0]),
-                    Integer.parseInt(generate[i][1])));
-            transformed[i][0] = generate[i][0] + " " + generate[i][1];
+            String answer = String.valueOf(findGCD(num1, num2));
+            transformed[i][0] = num1 + " " + num2;
             transformed[i][1] = answer;
         }
         return transformed;
