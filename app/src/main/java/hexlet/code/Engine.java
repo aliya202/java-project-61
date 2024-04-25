@@ -7,8 +7,7 @@ public class Engine {
     public static final int RESULTS = 2;
 
     public static void run(String description, String[][] rounds) {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name? !");
+        System.out.print("Welcome to the Brain Games!" + "\nMay I have your name? ");
         Scanner scanner = new Scanner(System.in);
         String playerName = scanner.next();
         System.out.println("Hello, " + playerName + "!");
