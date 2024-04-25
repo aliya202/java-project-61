@@ -32,7 +32,8 @@ public class App {
             case "4" -> GCD.run();
             case "5" -> Progression.run();
             case "6" -> Prime.run();
-            default -> System.out.println("Exit");
+            case "0" -> System.out.println("Exit");
+            default -> System.out.println("Unknown game");
         }
         scanner.close();
     }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Engine {
     public static final int ROUNDS = 3;
     public static final int RESULTS = 2;
-    public static final String[][] ROUNDS_DATA = new String[ROUNDS][RESULTS];
 
     public static void run(String description, String[][] rounds) {
         System.out.println("Welcome to the Brain Games!");
@@ -39,5 +38,4 @@ public class Engine {
         }
         scanner.close();
     }
-
 }
