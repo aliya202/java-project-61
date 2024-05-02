@@ -2,7 +2,7 @@
 [![Actions Status](https://github.com/aliya202/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/aliya202/java-project-61/actions)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/e5a8e2fb247e533ce213/maintainability)](https://codeclimate.com/github/aliya202/java-project-61/maintainability)
-gi
+
 
 ## “Mind Games”
 “Mind Games” is a set of five console games, built on the principle of popular mobile applications for pumping up the 
