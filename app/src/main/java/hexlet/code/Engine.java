@@ -21,15 +21,14 @@ public class Engine {
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
 
-            if (userAnswer.equals(round[1])) {
-                System.out.println("Correct!");
-                correctAnswersCount++;
-            } else {
+            if (!userAnswer.equals(round[1])) {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + (round[1] + "'."));
                 System.out.println("Let's try again, " + playerName + "!");
                 break;
             }
+            System.out.println("Correct!");
+            correctAnswersCount++;
 
             if (correctAnswersCount == successAttempts) {
                 System.out.println("Congratulations, " + playerName + "!");
